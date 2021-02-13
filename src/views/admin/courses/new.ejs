@@ -1,0 +1,227 @@
+<%- include('../../partials/head_mdeditor', { cssFile: 'small-business.css' }) %>
+<%- include('../../partials/navigation/admin') %>
+
+  <div class="container course-settings">
+    <!-- Content Row -->
+    <div class="row my-3">
+      <div class="col-md-12 mb-5">
+        <div class="card rounded-0">
+          <div class="card-body">
+            <h5 class="card-title mb-4">New course</h5>
+
+            <% if (flashes.all) { %>
+              <% flashes.all.forEach(flash => { %>
+                <div class="alert alert-dismissible alert-<%= flash.style %>">
+                  <button type="button" class="close"
+                    data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <strong><%= flash.intro %></strong> <%= flash.message %>
+                </div>
+              <% }) %>
+            <% } %>
+
+            <form enctype="multipart/form-data" method="POST">
+              <div class="form-group row">
+                <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                  <input type="text" required value="<%= course.tempTitle !== undefined ? course.tempTitle : course.title %>" class="form-control" id="inputTitle" name="title">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputImage" class="col-sm-2 col-form-label">Image</label>
+                <div class="col-sm-10">
+                  <div class="d-flex">
+                    <input type="file" class="form-control mr-2" id="inputImage" placeholder="File" accept="image/*" name="image">
+                    <img src="https://via.placeholder.com/750x422.png?text=course%20picture" class="img-fluid ml-auto" style="width: 400px">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputShortDesc" class="col-sm-2 col-form-label">Short description</label>
+                <div class="col-sm-10">
+                  <input type="text" value="<%= course.short %>" class="form-control" id="inputShortDesc" name="short">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="day" class="col-sm-2 col-form-label">Start date</label>
+                <div class="col-sm-10">
+                  <div class="d-flex">
+                    <select class="form-control mr-3" id="startDay" name="startDay">
+                      <% for (let i = 1; i < 32; i++) { %>
+                        <% if (i === Number(course.startDay)) { %>
+                          <option value="<%= i %>" selected><%= i %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= i %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                    <select class="form-control mr-3" id="startMonth" name="startMonth">
+                      <% for (let month of [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]) { %>
+                        <% if (month === course.startMonth) { %>
+                          <option value="<%= month %>" selected><%= month %></option>
+                        <% } else { %>
+                          <option value="<%= month %>"><%= month %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                    <select class="form-control" id="startYear" name="startYear">
+                      <% for (let i = new Date().getFullYear() - 30; i < new Date().getFullYear() + 30; i++) { %>
+                        <% if (i === Number(course.startYear)) { %>
+                          <option value="<%= i %>" selected><%= i %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= i %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="startHour" class="col-sm-2 col-form-label">Start hour</label>
+                <div class="col-sm-10">
+                  <div class="d-flex">
+                    <select class="form-control mr-3" id="startHour" name="startHour">
+                      <% for (let i = 0; i < 24; i++) { %>
+                        <% if (i === Number(course.startHour)) { %>
+                          <option value="<%= i %>" selected><%= i %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= i %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                    <select class="form-control" id="startMinute" name="startMinute">
+                      <% for (let i = 0; i < 60; i++) { %>
+                        <% if (i === Number(course.startMinute)) { %>
+                          <option value="<%= i %>" selected><%= String(i).padStart(2, "0") %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= String(i).padStart(2, "0") %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="day" class="col-sm-2 col-form-label">End date</label>
+                <div class="col-sm-10">
+                  <div class="d-flex">
+                    <select class="form-control mr-3" id="endDay" name="endDay">
+                      <% for (let i = 1; i < 32; i++) { %>
+                        <% if (i === Number(course.endDay)) { %>
+                          <option value="<%= i %>" selected><%= i %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= i %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                    <select class="form-control mr-3" id="endMonth" name="endMonth">
+                      <% for (let month of [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]) { %>
+                        <% if (month === course.endMonth) { %>
+                          <option value="<%= month %>" selected><%= month %></option>
+                        <% } else { %>
+                          <option value="<%= month %>"><%= month %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                    <select class="form-control" id="endYear" name="endYear">
+                      <% for (let i = new Date().getFullYear() - 30; i < new Date().getFullYear() + 30; i++) { %>
+                        <% if (i === Number(course.endYear)) { %>
+                          <option value="<%= i %>" selected><%= i %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= i %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="endHour" class="col-sm-2 col-form-label">End hour</label>
+                <div class="col-sm-10">
+                  <div class="d-flex">
+                    <select class="form-control mr-3" id="endHour" name="endHour">
+                      <% for (let i = 0; i < 24; i++) { %>
+                        <% if (i === Number(course.endHour)) { %>
+                          <option value="<%= i %>" selected><%= i %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= i %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                    <select class="form-control" id="endMinute" name="endMinute">
+                      <% for (let i = 0; i < 60; i++) { %>
+                        <% if (i === Number(course.endMinute)) { %>
+                          <option value="<%= i %>" selected><%= String(i).padStart(2, "0") %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= String(i).padStart(2, "0") %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="language" class="col-sm-2 col-form-label">Language</label>
+                <div class="col-sm-10">
+                  <select class="form-control mr-3" id="language" name="language">
+                    <% for (let language of languages) { %>
+                      <% if (language === course.language ) { %>
+                        <option value="<%= language %>" selected><%= language %></option>
+                      <% } else { %>
+                        <option value="<%= language %>"><%= language %></option>
+                      <% } %>
+                    <% } %>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" id="inputDescription" rows="3" name="description"><%= course.description %></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="teacher" class="col-sm-2 col-form-label">Teacher</label>
+                <div class="col-sm-10">
+                  <select class="form-control mr-3" id="teacher" name="teacher">
+                    <option value="-1">none</option>
+                    <% for (let teacher of teachers) { %>
+                      <% if (teacher.id === course.teacher.id) { %>
+                        <option value="<%= teacher.id %>" selected><%= teacher.firstname %> <%= teacher.lastname %></option>
+                      <% } else { %>
+                        <option value="<%= teacher.id %>"><%= teacher.firstname %> <%= teacher.lastname %></option>
+                      <% } %>
+                    <% } %>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="selfenrollment" class="col-sm-2 col-form-label">Self-enrollment</label>
+                <div class="col-sm-10">
+                  <select class="form-control mr-3" id="selfenrollment" name="selfenrollment">
+                    <option value="true" <%= course.selfenrollment ? 'selected' : '' %> >allowed</option>
+                    <option value="false" <%= course.selfenrollment ? '' : 'selected' %> >not allowed</option>
+                  </select>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group row">
+                <div class="col-sm-12 text-right">
+                  <button type="submit" class="btn btn-success mr-2">
+                    <i class="fas fa-save mr-2"></i>Save
+                  </button>
+                  <button type="button" class="btn btn-warning" onclick="location.href='';">
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+<%- include('../../partials/footer_mdeditor') %>

@@ -1,0 +1,25 @@
+{
+  "0": {
+    "topBlock": {
+      "name": "Tenjin School",
+      "image": "/img/uploads/school/school.jpg",
+      "title": "Learn on your schedule",
+      "short": "Anywhere, anytime. Enjoy risk-free with our 30-day, money-back guarantee."
+    },
+    "callOut": {
+      "title": "Become an instructor",
+      "short": "Top instructors from around the world teach millions of students on Tenjin School."
+    },
+    "activeCourses": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "nonActiveCourses": [
+      6
+    ]
+  },  
+  "biggestId": 0
+}

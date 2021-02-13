@@ -1,0 +1,30 @@
+/*!
+ * Start Bootstrap - Small Business (https://startbootstrap.com/template-overviews/small-business)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-small-business/blob/master/LICENSE)
+ */
+body {
+  padding-top: 56px;
+}
+
+.text-small {
+  font-size: 80%;
+}
+
+.learning ul  {
+  margin: 0;
+  padding: 0;
+  padding-left: 1.25rem;
+}
+
+.learning ul > li {
+  margin-top: 10px;
+}
+
+#courseCarousel .carousel-control-prev {
+  left: -100px;
+}
+
+#courseCarousel .carousel-control-next {
+  right: -100px;
+}

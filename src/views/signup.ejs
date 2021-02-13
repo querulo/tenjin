@@ -1,0 +1,90 @@
+<%- include('partials/head', { cssFile: 'login.css' }) %>
+
+<body>
+  <div class="container-fluid">
+    <div class="row no-gutter">
+      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+      <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 col-lg-8 mx-auto">
+                <h3 class="login-heading mb-4">Register to Tenjin Schcool</h3>
+                
+                <% if (flashes.all) { %>
+                  <% flashes.all.forEach(flash => { %>
+                    <div class="alert alert-dismissible alert-<%= flash.style %>">
+                      <button type="button" class="close"
+                        data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <strong><%= flash.intro %></strong> <%= flash.message %>
+                    </div>
+                  <% }) %>
+                <% } %>
+                
+                <form class="form-signin" action="/signup" method="POST">
+
+                  <div class="form-group row">
+                    <div class="col-sm-6">
+                      <div class="d-flex">
+                        <div class="form-label-group">
+                          <input type="text" id="inputFirstname" class="form-control" placeholder="Firstname"
+                          name="firstname" required autofocus <% if (locals.oldForm) { %> value="<%= oldForm.firstname %>" <% } %> >
+                          <label for="inputFirstname">Firstname</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="d-flex">
+                        <div class="form-label-group">
+                          <input type="text" id="inputLastname" class="form-control" placeholder="Lastname"
+                          name="lastname" required <% if (locals.oldForm) { %> value="<%= oldForm.lastname %>" <% } %> >
+                          <label for="inputLastname">Lastname</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="form-label-group">
+                    <input type="text" id="inputUsername" class="form-control" placeholder="Username"
+                    name="username" required <% if (locals.oldForm) { %> value="<%= oldForm.username %>" <% } %> >
+                    <label for="inputUsername">Username</label>
+                  </div>
+    
+                  <div class="form-label-group">
+                    <input type="text" id="inputNickname" class="form-control" placeholder="Nickname"
+                    name="nickname" required <% if (locals.oldForm) { %> value="<%= oldForm.nickname %>" <% } %> >
+                    <label for="inputNickname">Nickname</label>
+                  </div>
+
+                  <div class="form-label-group">
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                    name="email" required <% if (locals.oldForm) { %> value="<%= oldForm.email %>" <% } %> >
+                    <label for="inputEmail">Email address</label>
+                  </div>
+                  
+                  <hr>
+    
+                  <div class="form-label-group">
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+                    <label for="inputPassword">Password</label>
+                  </div>
+                  
+                  <div class="form-label-group">
+                    <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" name="confirmPassword" required>
+                    <label for="inputConfirmPassword">Confirm password</label>
+                  </div>
+
+                  <hr>
+    
+                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                  <a class="d-block text-center mt-2 small" href="/signin">Sign In</a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<%- include('partials/footer_auth') %>

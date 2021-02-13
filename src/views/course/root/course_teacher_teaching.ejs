@@ -1,0 +1,114 @@
+<%- include('../../partials/head', { cssFile: 'small-business.css' }) %>
+<% if (locals.loggedUser.role === 'teacher') { %>
+  <%- include(`../../partials/navigation/teacher`) %>
+<% } else { %>
+  <%- include(`../../partials/navigation/admin`) %>
+<% } %>
+
+  <!-- Page Content -->
+  <div class="container-fluid bg-secondary">
+    <div class="row py-5">
+      <div class="col-md-12 text-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <h2 class="card-title"><%= course.title %></h2>
+              <p class="card-text"><%= course.short %></p>
+              <% if (course.nonActive) { %>
+                <p class="text-warning"><i class="fas fa-ban mr-2"></i> Course not active</p>
+              <% } %>
+              <div class="text-small">
+                <% if ( course.nextLesson ) { %>
+                  <span class="d-block">
+                    <i class="fas fa-graduation-cap mr-2"></i>
+                    <span class="mr-3">Next lesson: <%= course.nextLesson.title %></span>
+                    <i class="fas fa-calendar mr-2"></i>
+                    <span class="mr-3">Date <strong><%= course.nextLesson.date %></strong></span>
+                    <i class="fas fa-clock mr-2"></i>
+                    <span class="mr-2">Starts: <strong><%= course.nextLesson.start %></strong> – Ends <strong><%= course.nextLesson.end %></strong></span>
+                  </span>
+                <% } %>
+                <span class="d-block">
+                  <i class="fas fa-comment mr-2"></i>
+                  <span class="mr-3"><%= course.language %></span>
+                  <i class="fas fa-user-cog mr-2"></i>Teacher <strong><%= course.teacher.firstname %></strong>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <img class="img-fluid" src="<%= course.image %>">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container course">
+    <!-- Content Row -->
+    <div class="row my-3">
+      <div class="col-md-12 mb-5">
+        <div class="card rounded-0">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <h5 class="card-title m-0">Lessons</h5>
+              <div class="ml-auto d-flex align-items-center">
+                <span class="mr-5"><%= lessons.length %> <%= lessons.length === 1 ? ' Lesson' : ' Lessons' %></span>
+                <span class="mr-5"><i class="fas fa-clock mr-2"></i><%= course.totalHours %> hours</span>
+                <div class="dropdown">
+                  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="courseMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-cog"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="courseMenu">
+                    <a class="dropdown-item" href="
+                      <% if (locals.loggedUser.role === 'teacher') { %>
+                        /course/<%= course.id %>/edit
+                      <% } else { %>
+                        /admin/courses/<%= course.id %>/edit
+                      <% } %>
+                    ">
+                      <i class="fas fa-cog mr-2"></i>Settings
+                    </a>
+                    <a class="dropdown-item" href="?edit=start">
+                      <i class="fas fa-pen mr-2"></i>Start Edit
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion" id="accordion">
+              <% for (let i = 0; i < lessons.length; i++) { %> 
+                <div class="card rounded-0 border-bottom-0">
+                  <div class="card-header" id="lesson-<%= i + 1 %>">
+                    <div class="d-flex align-items-center">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link text-secondary collapsed" data-toggle="collapse" data-target="#lesson-<%= i + 1 %>-collapse" aria-expanded="false" aria-controls="lesson-<%= i + 1 %>-collapse">
+                          <%= lessons[i].date %> - <%= lessons[i].title %>
+                        </button>
+                      </h5>
+                    </div>
+                  </div>
+              
+                  <div id="lesson-<%= i + 1 %>-collapse" class="collapse" aria-labelledby="lesson-<%= i + 1 %>" data-parent="#accordion">
+                    <div class="card-body">
+                      <p class="text-small text-secondary mb-3">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span class="mr-2">Starts: <%- lessons[i].start %> – Ends: <%- lessons[i].end %></span>
+                      </p>
+                      <%- lessons[i].htmlContents %>
+                    </div>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+<%- include('../../partials/footer') %>

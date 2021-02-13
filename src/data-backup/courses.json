@@ -1,0 +1,94 @@
+{
+  "1": {
+    "title": "Advanced React and Redux",
+    "slug": "Advanced-React-and-Redux",
+    "image": "/img/uploads/courses/1/1.jpg",
+    "short": "Detailed walkthroughs on advanced React and Redux concepts - Authentication, Testing, Middlewares, HOC's, and Deployment",
+    "start": "2020-09-14T16:30:00.000Z",
+    "end": "2020-09-15T20:30:00.000Z",
+    "language": "English (United States)",
+    "description": "##### Requirements\r\n\r\n*   For maximum learning, students will need access to an extra computer that can be used as an Ubuntu Linux Server. An old Desktop PC and/or laptop with a CD/DVD drive or a USB slot should be sufficient. Additionally, the student must have access to either a blank USB thumbdrive or a CD/DVD burner. Using these components to install Ubuntu Server will be covered in the course.\r\n\r\n##### Description\r\n\r\n**Linux is the fastest growing operating system _in the world_. Get the Ubuntu Server skills you need to succeed, in only 3 days.**\r\n\r\nLet's be honest; technical books are boring. Sure, you could learn Ubuntu Linux server administration from some long-winded encyclopedia, but why waste all that time?\r\n\r\nIf you want to increase your IT skills, this course is a great place to start. More and more companies are utilizing Linux servers in their day-to-day operations. **So, don't be left behind!**\r\n\r\n**Wait, are you still reading this?!** The course comes with a genuine 30 day, no hassles, money-back guarantee. So, there is absolutely nothing to risk here. **Enroll today!**\r\n\r\n##### Who this course is for:\r\n\r\n*   This course is designed for beginners, especially users who have never installed or operated an Ubuntu Linux Server. The course is designed to take students step-by-step through the process of installing and configuring a server from scratch. No experience with Linux or other server environments is necessary. Intermediate users are encouraged to enroll at their own discretion. For example, if they are in need of a basic knowledge of RAID, SSH, Samba, cron jobs, and/or Apache. Advanced users will already know how to use such features and are therefore discouraged from enrolling in this course.",
+    "teacher": 2,
+    "students": [
+      1
+    ],
+    "lessons": [
+      1,
+      2
+    ],
+    "selfenrollment": false
+  },
+  "2": {
+    "title": "Android Architecture Masterclass",
+    "slug": "Android-Architecture-Masterclass",
+    "image": "/img/uploads/courses/2/2.jpg",
+    "short": "Learn the best practices of clean design and architecture of Android applications",
+    "start": "2020-05-04T16:30:00.000Z",
+    "end": "2020-05-04T20:30:00.000Z",
+    "language": "English (United States)",
+    "description": "##### Requirements\r\n\r\n*   For maximum learning, students will need access to an extra computer that can be used as an Ubuntu Linux Server. An old Desktop PC and/or laptop with a CD/DVD drive or a USB slot should be sufficient. Additionally, the student must have access to either a blank USB thumbdrive or a CD/DVD burner. Using these components to install Ubuntu Server will be covered in the course.\r\n\r\n##### Description\r\n\r\n**Linux is the fastest growing operating system _in the world_. Get the Ubuntu Server skills you need to succeed, in only 3 days.**\r\n\r\nLet's be honest; technical books are boring. Sure, you could learn Ubuntu Linux server administration from some long-winded encyclopedia, but why waste all that time?\r\n\r\nIf you want to increase your IT skills, this course is a great place to start. More and more companies are utilizing Linux servers in their day-to-day operations. **So, don't be left behind!**\r\n\r\n**Wait, are you still reading this?!** The course comes with a genuine 30 day, no hassles, money-back guarantee. So, there is absolutely nothing to risk here. **Enroll today!**\r\n\r\n##### Who this course is for:\r\n\r\n*   This course is designed for beginners, especially users who have never installed or operated an Ubuntu Linux Server. The course is designed to take students step-by-step through the process of installing and configuring a server from scratch. No experience with Linux or other server environments is necessary. Intermediate users are encouraged to enroll at their own discretion. For example, if they are in need of a basic knowledge of RAID, SSH, Samba, cron jobs, and/or Apache. Advanced users will already know how to use such features and are therefore discouraged from enrolling in this course.",
+    "teacher": 2,
+    "students": [],
+    "lessons": [],
+    "selfenrollment": false
+  },
+  "3": {
+    "title": "Ubuntu Linux Server Basics",
+    "slug": "Ubuntu-Linux-Server-Basics",
+    "image": "/img/uploads/courses/3/3.jpg",
+    "short": "Learn Ubuntu Server administration in 3 days with this step-by-step course for beginners.",
+    "start": "2020-05-04T16:30:00.000Z",
+    "end": "2020-05-04T20:30:00.000Z",
+    "language": "English (United States)",
+    "description": "##### Requirements\r\n\r\n*   For maximum learning, students will need access to an extra computer that can be used as an Ubuntu Linux Server. An old Desktop PC and/or laptop with a CD/DVD drive or a USB slot should be sufficient. Additionally, the student must have access to either a blank USB thumbdrive or a CD/DVD burner. Using these components to install Ubuntu Server will be covered in the course.\r\n\r\n##### Description\r\n\r\n**Linux is the fastest growing operating system _in the world_. Get the Ubuntu Server skills you need to succeed, in only 3 days.**\r\n\r\nLet's be honest; technical books are boring. Sure, you could learn Ubuntu Linux server administration from some long-winded encyclopedia, but why waste all that time?\r\n\r\nIf you want to increase your IT skills, this course is a great place to start. More and more companies are utilizing Linux servers in their day-to-day operations. **So, don't be left behind!**\r\n\r\n**Wait, are you still reading this?!** The course comes with a genuine 30 day, no hassles, money-back guarantee. So, there is absolutely nothing to risk here. **Enroll today!**\r\n\r\n##### Who this course is for:\r\n\r\n*   This course is designed for beginners, especially users who have never installed or operated an Ubuntu Linux Server. The course is designed to take students step-by-step through the process of installing and configuring a server from scratch. No experience with Linux or other server environments is necessary. Intermediate users are encouraged to enroll at their own discretion. For example, if they are in need of a basic knowledge of RAID, SSH, Samba, cron jobs, and/or Apache. Advanced users will already know how to use such features and are therefore discouraged from enrolling in this course.",
+    "teacher": 2,
+    "students": [],
+    "lessons": [],
+    "selfenrollment": false
+  },
+  "4": {
+    "title": "Learn and Understand NodeJS",
+    "slug": "Learn-and-Understand-NodeJS",
+    "image": "/img/uploads/courses/4/4.jpg",
+    "short": "Dive deep under the hood of NodeJS. Learn V8, Express, the MEAN stack, core Javascript concepts, and more",
+    "start": "2020-05-04T16:30:00.000Z",
+    "end": "2020-05-04T20:30:00.000Z",
+    "language": "English (United States)",
+    "description": "##### Requirements\r\n\r\n*   For maximum learning, students will need access to an extra computer that can be used as an Ubuntu Linux Server. An old Desktop PC and/or laptop with a CD/DVD drive or a USB slot should be sufficient. Additionally, the student must have access to either a blank USB thumbdrive or a CD/DVD burner. Using these components to install Ubuntu Server will be covered in the course.\r\n\r\n##### Description\r\n\r\n**Linux is the fastest growing operating system _in the world_. Get the Ubuntu Server skills you need to succeed, in only 3 days.**\r\n\r\nLet's be honest; technical books are boring. Sure, you could learn Ubuntu Linux server administration from some long-winded encyclopedia, but why waste all that time?\r\n\r\nIf you want to increase your IT skills, this course is a great place to start. More and more companies are utilizing Linux servers in their day-to-day operations. **So, don't be left behind!**\r\n\r\n**Wait, are you still reading this?!** The course comes with a genuine 30 day, no hassles, money-back guarantee. So, there is absolutely nothing to risk here. **Enroll today!**\r\n\r\n##### Who this course is for:\r\n\r\n*   This course is designed for beginners, especially users who have never installed or operated an Ubuntu Linux Server. The course is designed to take students step-by-step through the process of installing and configuring a server from scratch. No experience with Linux or other server environments is necessary. Intermediate users are encouraged to enroll at their own discretion. For example, if they are in need of a basic knowledge of RAID, SSH, Samba, cron jobs, and/or Apache. Advanced users will already know how to use such features and are therefore discouraged from enrolling in this course.",
+    "teacher": 4,
+    "students": [
+      1
+    ],
+    "lessons": [],
+    "selfenrollment": false
+  },
+  "5": {
+    "title": "The Complete Web Developer Course",
+    "slug": "The-Complete-Web-Developer-Course",
+    "image": "/img/uploads/courses/5/5.jpg",
+    "short": "Learn Web Development by building 25 websites and mobile apps using HTML, CSS, Javascript, PHP, Python, MySQL & more!",
+    "start": "2020-05-04T16:30:00.000Z",
+    "end": "2020-05-04T20:30:00.000Z",
+    "language": "English (United States)",
+    "description": "##### Requirements\r\n\r\n*   For maximum learning, students will need access to an extra computer that can be used as an Ubuntu Linux Server. An old Desktop PC and/or laptop with a CD/DVD drive or a USB slot should be sufficient. Additionally, the student must have access to either a blank USB thumbdrive or a CD/DVD burner. Using these components to install Ubuntu Server will be covered in the course.\r\n\r\n##### Description\r\n\r\n**Linux is the fastest growing operating system _in the world_. Get the Ubuntu Server skills you need to succeed, in only 3 days.**\r\n\r\nLet's be honest; technical books are boring. Sure, you could learn Ubuntu Linux server administration from some long-winded encyclopedia, but why waste all that time?\r\n\r\nIf you want to increase your IT skills, this course is a great place to start. More and more companies are utilizing Linux servers in their day-to-day operations. **So, don't be left behind!**\r\n\r\n**Wait, are you still reading this?!** The course comes with a genuine 30 day, no hassles, money-back guarantee. So, there is absolutely nothing to risk here. **Enroll today!**\r\n\r\n##### Who this course is for:\r\n\r\n*   This course is designed for beginners, especially users who have never installed or operated an Ubuntu Linux Server. The course is designed to take students step-by-step through the process of installing and configuring a server from scratch. No experience with Linux or other server environments is necessary. Intermediate users are encouraged to enroll at their own discretion. For example, if they are in need of a basic knowledge of RAID, SSH, Samba, cron jobs, and/or Apache. Advanced users will already know how to use such features and are therefore discouraged from enrolling in this course.",
+    "teacher": 4,
+    "students": [],
+    "lessons": [],
+    "selfenrollment": true
+  },
+  "6": {
+    "title": "Linux for Beginners",
+    "slug": "Linux-for-Beginners",
+    "image": "/img/uploads/courses/6/6.jpg",
+    "short": "An Introduction to the Linux Operating System and Command Line",
+    "start": "2020-05-04T16:30:00.000Z",
+    "end": "2020-05-04T20:30:00.000Z",
+    "language": "English (United States)",
+    "description": "##### Requirements\r\n\r\n*   For maximum learning, students will need access to an extra computer that can be used as an Ubuntu Linux Server. An old Desktop PC and/or laptop with a CD/DVD drive or a USB slot should be sufficient. Additionally, the student must have access to either a blank USB thumbdrive or a CD/DVD burner. Using these components to install Ubuntu Server will be covered in the course.\r\n\r\n##### Description\r\n\r\n**Linux is the fastest growing operating system _in the world_. Get the Ubuntu Server skills you need to succeed, in only 3 days.**\r\n\r\nLet's be honest; technical books are boring. Sure, you could learn Ubuntu Linux server administration from some long-winded encyclopedia, but why waste all that time?\r\n\r\nIf you want to increase your IT skills, this course is a great place to start. More and more companies are utilizing Linux servers in their day-to-day operations. **So, don't be left behind!**\r\n\r\n**Wait, are you still reading this?!** The course comes with a genuine 30 day, no hassles, money-back guarantee. So, there is absolutely nothing to risk here. **Enroll today!**\r\n\r\n##### Who this course is for:\r\n\r\n*   This course is designed for beginners, especially users who have never installed or operated an Ubuntu Linux Server. The course is designed to take students step-by-step through the process of installing and configuring a server from scratch. No experience with Linux or other server environments is necessary. Intermediate users are encouraged to enroll at their own discretion. For example, if they are in need of a basic knowledge of RAID, SSH, Samba, cron jobs, and/or Apache. Advanced users will already know how to use such features and are therefore discouraged from enrolling in this course.",
+    "teacher": 4,
+    "students": [],
+    "lessons": [],
+    "selfenrollment": false
+  },
+  "biggestId": 6
+}

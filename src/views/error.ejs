@@ -1,0 +1,24 @@
+<%- include('partials/head', { cssFile: 'small-business.css' }) %>
+<%- include(`partials/navigation/${locals.loggedUser ? loggedUser.role : 'anon'}`) %>
+
+<div class="container">
+
+  <div class="row align-items-center my-5">
+
+    <div class="col-lg-7">
+      <h1><%= locals.title %></h1>
+    </div>
+
+  </div>
+
+  <div class="row align-items-center my-5">
+
+    <div class="col-lg-7">
+      <p><%= locals.message %></p>
+    </div>
+
+  </div>
+
+</div>
+
+<%- include('partials/footer_auth') %>

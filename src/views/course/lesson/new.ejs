@@ -1,0 +1,189 @@
+<%- include('../../partials/head_mdeditor', { cssFile: 'small-business.css' }) %>
+<%- include(`../../partials/navigation/${loggedUser.role === 'teacher' ? 'teacher' : 'admin'}`) %>
+
+<div class="container course-settings">
+    <!-- Content Row -->
+    <div class="row my-3">
+      <div class="col-md-12 mb-5">
+        <div class="card rounded-0">
+          <div class="card-body">
+            <h5 class="card-title mb-4">New lesson</h5>
+
+            <% if (flashes.all) { %>
+              <% flashes.all.forEach(flash => { %>
+                <div class="alert alert-dismissible alert-<%= flash.style %>">
+                  <button type="button" class="close"
+                    data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <strong><%= flash.intro %></strong> <%= flash.message %>
+                </div>
+              <% }) %>
+            <% } %>
+
+            <form method="POST">
+              <div class="form-group row">
+                <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                  <input type="text" value="<%= lesson.tempTitle !== undefined ? lesson.tempTitle : lesson.title %>"
+                    required class="form-control" id="inputTitle" name="title">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="day" class="col-sm-2 col-form-label">Start date</label>
+                <div class="col-sm-10">
+                  <div class="d-flex">
+                    <select class="form-control mr-3" id="startDay" name="startDay">
+                      <% for (let i = 1; i < 32; i++) { %>
+                        <% if (i === Number(lesson.startDay)) { %>
+                          <option value="<%= i %>" selected><%= i %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= i %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                    <select class="form-control mr-3" id="startMonth" name="startMonth">
+                      <% for (let month of [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]) { %>
+                        <% if (month === lesson.startMonth) { %>
+                          <option value="<%= month %>" selected><%= month %></option>
+                        <% } else { %>
+                          <option value="<%= month %>"><%= month %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                    <select class="form-control" id="startYear" name="startYear">
+                      <% for (let i = new Date().getFullYear() - 30; i < new Date().getFullYear() + 30; i++) { %>
+                        <% if (i === Number(lesson.startYear)) { %>
+                          <option value="<%= i %>" selected><%= i %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= i %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="startHour" class="col-sm-2 col-form-label">Start hour</label>
+                <div class="col-sm-10">
+                  <div class="d-flex">
+                    <select class="form-control mr-3" id="startHour" name="startHour">
+                      <% for (let i = 0; i < 24; i++) { %>
+                        <% if (i === Number(lesson.startHour)) { %>
+                          <option value="<%= i %>" selected><%= i %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= i %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                    <select class="form-control" id="startMinute" name="startMinute">
+                      <% for (let i = 0; i < 60; i++) { %>
+                        <% if (i === Number(lesson.startMinute)) { %>
+                          <option value="<%= i %>" selected><%= String(i).padStart(2, "0") %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= String(i).padStart(2, "0") %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="day" class="col-sm-2 col-form-label">End date</label>
+                <div class="col-sm-10">
+                  <div class="d-flex">
+                    <select class="form-control mr-3" id="endDay" name="endDay">
+                      <% for (let i = 1; i < 32; i++) { %>
+                        <% if (i === Number(lesson.endDay)) { %>
+                          <option value="<%= i %>" selected><%= i %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= i %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                    <select class="form-control mr-3" id="endMonth" name="endMonth">
+                      <% for (let month of [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]) { %>
+                        <% if (month === lesson.endMonth) { %>
+                          <option value="<%= month %>" selected><%= month %></option>
+                        <% } else { %>
+                          <option value="<%= month %>"><%= month %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                    <select class="form-control" id="endYear" name="endYear">
+                      <% for (let i = new Date().getFullYear() - 30; i < new Date().getFullYear() + 30; i++) { %>
+                        <% if (i === Number(lesson.endYear)) { %>
+                          <option value="<%= i %>" selected><%= i %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= i %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="endHour" class="col-sm-2 col-form-label">End hour</label>
+                <div class="col-sm-10">
+                  <div class="d-flex">
+                    <select class="form-control mr-3" id="endHour" name="endHour">
+                      <% for (let i = 0; i < 24; i++) { %>
+                        <% if (i === Number(lesson.endHour)) { %>
+                          <option value="<%= i %>" selected><%= i %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= i %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                    <select class="form-control" id="endMinute" name="endMinute">
+                      <% for (let i = 0; i < 60; i++) { %>
+                        <% if (i === Number(lesson.endMinute)) { %>
+                          <option value="<%= i %>" selected><%= String(i).padStart(2, "0") %></option>
+                        <% } else { %>
+                          <option value="<%= i %>"><%= String(i).padStart(2, "0") %></option>
+                        <% } %>
+                      <% } %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="language" class="col-sm-2 col-form-label">Language</label>
+                <div class="col-sm-10">
+                  <select class="form-control mr-3" id="language" name="language">
+                    <% for (let language of languages) { %>
+                      <% if (language === lesson.language) { %>
+                        <option value="<%= language %>" selected><%= language %></option>
+                      <% } else { %>
+                        <option value="<%= language %>"><%= language %></option>
+                      <% } %>
+                    <% } %>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputDescription" class="col-sm-2 col-form-label">Contents</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" id="inputDescription" rows="3" name="contents"><%= lesson.contents %></textarea>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group row">
+                <div class="col-sm-12 text-right">
+                  <button type="submit" class="btn btn-success mr-2">
+                    <i class="fas fa-save mr-2"></i>Create lesson
+                  </button>
+                  <button type="button" class="btn btn-warning" onclick="location.href='';">
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+<%- include('../../partials/footer_mdeditor') %>

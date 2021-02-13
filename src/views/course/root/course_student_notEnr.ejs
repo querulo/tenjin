@@ -1,0 +1,53 @@
+<%- include('../../partials/head', { cssFile: 'small-business.css' }) %>
+<%- include('../../partials/navigation/student') %>
+
+  <!-- Page Content -->
+  <div class="container-fluid bg-secondary">
+    <div class="row py-5">
+      <div class="col-md-12 text-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <h2 class="card-title"><%= course.title %></h2>
+              <p class="card-text"><%= course.short %></p>
+              <div class="text-small">
+                <span class="d-block">
+                  <i class="fas fa-calendar mr-1"></i>
+                  <span class="mr-2">Start date <strong><%= course.start %></strong></span>
+                  <i class="fas fa-calendar mr-1"></i>
+                  <span class="mr-2">End date <strong><%= course.end %></strong></span>
+                </span>
+                <span class="d-block">
+                  <i class="fas fa-comment mr-2"></i>
+                  <span class="mr-2"><%= course.language %></span>
+                  <i class="fas fa-user-cog mr-2"></i>Teacher <strong><%= course.teacher.firstname %> <%= course.teacher.lastname %></strong>
+                </span>
+              </div>
+              <% if (course.selfenrollment) { %>
+                <p class="mt-2 mb-0">
+                  <a class="btn btn-block btn-primary" href="/course/<%= course.id %>/self-enroll">Join Now!</a>
+                </p>
+              <% } %>
+            </div>
+            <div class="col-md-4">
+              <img class="img-fluid" src="<%= course.image %>">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container course">
+    <!-- Content Row -->
+    <div class="row my-3">
+      <div class="col-md-12 mb-5">
+        <%- course.htmlDescription %>
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+<%- include('../../partials/footer') %>

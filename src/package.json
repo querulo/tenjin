@@ -1,0 +1,39 @@
+{
+  "name": "tenjin-prova-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tenjin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devstart": "nodemon tenjin.js",
+    "devreset": "node ./dev/scripts/reset-data-and-uploads/index.js",
+    "delses": "node ./dev/scripts/deleteAllSessions.js",
+    "mariadbinit": "node ./scripts/mariadb-init.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-redis": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "dompurify": "^2.0.17",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.1",
+    "helmet": "^4.1.1",
+    "jsdom": "^16.4.0",
+    "mariadb": "^2.4.2",
+    "markdown-it": "^11.0.0",
+    "moment": "^2.27.0",
+    "moment-timezone": "^0.5.31",
+    "multiparty": "^4.2.2",
+    "redis": "^3.0.2",
+    "slugify": "^1.4.5",
+    "xss-filters": "^1.2.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

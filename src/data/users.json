@@ -1,0 +1,75 @@
+{
+  "1": {
+    "username": "student",
+    "firstname": "Student",
+    "lastname": "Smith",
+    "nickname": "Student",
+    "email": "student@email.com",
+    "website": "",
+    "publicinfo": "",
+    "password": "f3c27ae81e553892aa1593897056b82a2f5b5ad708a1977faa472b21eed4034d2b0f4a624a3acabab98259ab7441b83ff9b65e55e16042344c2803d7992edf5c",
+    "salt": "f6d43603ec3b4ec1",
+    "active": true,
+    "role": "student",
+    "dashboardstyles": {
+      "myteachingcoursesstyle": "card",
+      "mycoursesstyle": "card",
+      "activecoursesstyle": "card"
+    }
+  },
+  "2": {
+    "username": "teacher",
+    "firstname": "Teacher",
+    "lastname": "Andrew",
+    "nickname": "Teacher",
+    "email": "teacher@email.com",
+    "website": "",
+    "publicinfo": "",
+    "password": "8e759d326be8e40eda3a6975c378063bcd417b9376882ba2d6e675d55b4253c60b5f0f5d905c4c9c867a634d8225be3a120d6e1c4ad146bc75c9630473d22fdf",
+    "salt": "71602064dc06947b",
+    "active": true,
+    "role": "teacher",
+    "dashboardstyles": {
+      "myteachingcoursesstyle": "card",
+      "mycoursesstyle": "card",
+      "activecoursesstyle": "card"
+    }
+  },
+  "3": {
+    "username": "admin",
+    "firstname": "Admin",
+    "lastname": "Johnson",
+    "nickname": "Admin",
+    "email": "admin@email.com",
+    "website": "",
+    "publicinfo": "",
+    "password": "afcb69f0ff99a371b59626863c0331df68b0ba010861214486aa31b5634faea341b89ef0779d87c1c81135be354ade69815500e6cf716129c08fb5f6268cca69",
+    "salt": "923f0949a2a8a91c",
+    "active": true,
+    "role": "admin",
+    "dashboardstyles": {
+      "myteachingcoursesstyle": "card",
+      "mycoursesstyle": "card",
+      "activecoursesstyle": "card"
+    }
+  },
+  "4": {
+    "username": "teacher2",
+    "firstname": "Teacher2",
+    "lastname": "White",
+    "nickname": "Teacher2",
+    "email": "teacher2@email.com",
+    "website": "",
+    "publicinfo": "",
+    "password": "5bbc16af3fe2c8f97e8fc50a8f21ddecafcc6f266da72506e2f047dca429f3505909a9ddda5a615a56d259553a2230c43509050e4ab2b454b971b80e35d98bc0",
+    "salt": "b1b5ff77ffd6defc",
+    "active": true,
+    "role": "teacher",
+    "dashboardstyles": {
+      "myteachingcoursesstyle": "card",
+      "mycoursesstyle": "card",
+      "activecoursesstyle": "card"
+    }
+  },
+  "biggestId": 4
+}

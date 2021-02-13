@@ -1,0 +1,21 @@
+{
+  "1": {
+    "title": "Introduction to React",
+    "start": "2020-10-14T16:30:00.000Z",
+    "end": "2020-10-14T20:30:00.000Z",
+    "language": "English (United States)",
+    "contents": "### Introduction to React\r\nWhat is React, and where it is useful\r\n",
+    "completed": [
+      1
+    ]
+  },
+  "2": {
+    "title": "React basics",
+    "start": "2020-10-15T16:30:00.000Z",
+    "end": "2020-10-15T20:30:00.000Z",
+    "language": "English (United States)",
+    "contents": "### React basics\r\nThis lesson will begin to give you some basic notions of React",
+    "completed": []
+  },
+  "biggestId": 2
+}

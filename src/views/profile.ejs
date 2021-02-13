@@ -1,0 +1,110 @@
+<%- include('partials/head', { cssFile: 'small-business.css' }) %>
+<%- include(`partials/navigation/${loggedUser.role}`) %>
+
+  <!-- Page Content -->
+  <div class="container">
+    <!-- Content Row -->
+    <div class="row my-5">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <h4>
+                  <i class="fas fa-user mr-2"></i>
+                  Your profile
+                </h4>
+                <hr>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                
+                <% if (flashes.all) { %>
+                  <% flashes.all.forEach(flash => { %>
+                    <div class="alert alert-dismissible alert-<%= flash.style %>">
+                      <button type="button" class="close"
+                        data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <strong><%= flash.intro %></strong> <%= flash.message %>
+                    </div>
+                  <% }) %>
+                <% } %>
+
+                <form action="/profile" method="POST">
+                  <div class="form-group row">
+                    <label for="username" class="col-4 col-form-label">User Name*</label>
+                    <div class="col-8">
+                      <input id="username" name="username" class="form-control here"
+                        required="required" type="text" value="<%= locals.oldForm ? oldForm.username : loggedUser.username %>">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="name" class="col-4 col-form-label">First Name*</label>
+                    <div class="col-8">
+                      <input id="name" name="firstname" class="form-control here"
+                      required type="text" value="<%= locals.oldForm ? oldForm.firstname : loggedUser.firstname %>">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="lastname" class="col-4 col-form-label">Last Name*</label>
+                    <div class="col-8">
+                      <input id="lastname" name="lastname" class="form-control here"
+                      required type="text" value="<%= locals.oldForm ? oldForm.lastname : loggedUser.lastname %>">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="text" class="col-4 col-form-label">Nick Name*</label>
+                    <div class="col-8">
+                      <input id="text" name="nickname" class="form-control here" required="required"
+                        type="text" value="<%= locals.oldForm ? oldForm.nickname: loggedUser.nickname %>">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="email" class="col-4 col-form-label">Email*</label>
+                    <div class="col-8">
+                      <input id="email" name="email" class="form-control here" required="required"
+                        type="email" value="<%= locals.oldForm ? oldForm.email : loggedUser.email %>">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="website" class="col-4 col-form-label">Website</label>
+                    <div class="col-8">
+                      <input id="website" name="website" class="form-control here" type="text" value="<%= locals.oldForm ? oldForm.website : loggedUser.website %>">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="publicinfo" class="col-4 col-form-label">Public Info</label>
+                    <div class="col-8">
+                      <textarea id="publicinfo" name="publicinfo" cols="40" rows="4" class="form-control"><%= locals.oldForm ? oldForm.publicinfo : loggedUser.publicinfo %></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="newpass" class="col-4 col-form-label">New Password</label>
+                    <div class="col-8">
+                      <input id="newpass" name="newpass" class="form-control here"
+                      type="password" value="">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-4 col-8 text-right">
+                      <button name="submit" type="submit" class="btn btn-success mr-2">
+                        <i class="fas fa-save mr-2"></i>
+                        Update My Profile
+                      </button>
+                      <button name="submit" type="button" class="btn btn-warning" onclick="location.href='';">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+<%- include('partials/footer') %>

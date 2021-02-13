@@ -1,0 +1,80 @@
+<%- include('../partials/head', { cssFile: 'small-business.css' }) %>
+<%- include(`../partials/navigation/admin`) %>
+
+  <!-- Page Content -->
+  <form enctype="multipart/form-data" method="POST">
+    <div class="container">
+      <!-- Content Row -->
+      <div class="row mt-5 mb-3">
+        <div class="col-md-6">
+          <div class="card rounded-0">
+            <div class="card-body">
+              <h4>Top Block</h4>
+              <div class="form-group row">
+                <label for="inputTitle" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                  <input type="text" value="<%= school.topBlock.name %>" class="form-control" id="inputSchoolName" name="schoolName">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputImage" class="col-sm-2 col-form-label">Image</label>
+                <div class="col-sm-10">
+                  <div class="d-flex">
+                    <input type="file" class="form-control mr-2" id="inputImage" placeholder="File" accept="image/*" name="image">
+                    <img src="<%= school.topBlock.image %>" class="img-fluid ml-auto" style="width: 200px">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                  <input type="text" value="<%= school.topBlock.title %>" class="form-control" id="inputTitle" name="schoolTitle">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputShortText" class="col-sm-2 col-form-label">Short</label>
+                <div class="col-sm-10">
+                  <input type="text" value="<%= school.topBlock.short %>" class="form-control" id="inputShortText" name="schoolShort">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card rounded-0">
+            <div class="card-body">
+              <h4>Call Out Block</h4>
+              <div class="form-group row">
+                <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                  <input type="text" value="<%= school.callOut.title %>" class="form-control" id="inputTitle" name="callOutTitle">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputShortText" class="col-sm-2 col-form-label">Short</label>
+                <div class="col-sm-10">
+                  <input type="text" value="<%= school.callOut.short %>" class="form-control" id="inputShortText" name="callOutShort">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-12 text-right">
+          <button type="submit" class="btn btn-success mr-2">
+            <i class="fas fa-save mr-2"></i>Save
+          </button>
+          <button type="reset" class="btn btn-warning">
+            Cancel
+          </button>
+        </div>
+      </div>
+      
+      <!-- /.row -->
+
+    </div>
+  </form>
+  <!-- /.container -->
+
+<%- include('../partials/footer') %> 

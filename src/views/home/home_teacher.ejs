@@ -1,0 +1,322 @@
+<%- include('../partials/head', { cssFile: 'small-business.css' }) %>
+<%- include('../partials/navigation/teacher') %>
+
+  <!-- Page Content -->
+  <div class="container">
+    
+    <% if (loggedUser.dashboardstyles.myteachingcoursesstyle === 'card') { %>
+      <!-- Content Row -->
+      <div class="row my-5">
+        <div class="col-md-12">
+          <div class="card rounded-0">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <h2 class="card-title m-0">
+                  My Teaching Courses Overview 
+                </h2>
+                <div class="ml-auto">
+                  <a href="?myteachingcoursesstyle=card" class="btn btn-sm active btn-outline-secondary mr-2">
+                    <i class="fas fa-th mr-2"></i>
+                    Show as card
+                  </a>
+                  <a href="?myteachingcoursesstyle=list" class="btn btn-sm btn-outline-secondary">
+                    <i class="fas fa-list mr-2"></i>
+                    Show as list
+                  </a>
+                </div> 
+              </div>
+              
+              <div class="container-fluid px-0">
+                <div class="row">
+                  <% for (let course of teachingCourses) { %>
+                    <!-- /.col-md-4 -->
+                    <div class="col-md-4">
+                      <div class="card h-100">
+                        <img class="card-img-top" src="<%= course.image %>">
+                        <div class="card-body">
+                          <h2 class="card-title"><%= course.title %></h2>
+                          <% if (course.nonActive) { %>
+                            <p class= "text-warning mb-3"><i class="fas fa-ban mr-2"></i> Course not active</p>
+                          <% } %>
+                          <p class="card-text"><%= course.short %></p>
+                        </div>
+                        <div class="card-footer">
+                          <a href="/course/<%= course.id %>" class="btn btn-block btn-primary btn-sm">
+                            Continue<i class="fas fa-arrow-right mt-1 ml-2"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } else { %>
+      <div class="row my-5">
+        <div class="col-md-12">
+          <div class="card rounded-0">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <h2 class="card-title m-0">
+                    My Teaching Courses Overview 
+                </h2>
+                <div class="ml-auto">
+                  <a href="?myteachingcoursesstyle=card" class="btn btn-sm btn-outline-secondary mr-2">
+                    <i class="fas fa-th mr-2"></i>
+                    Show as card
+                  </a>
+                  <a href="?myteachingcoursesstyle=list" class="btn active btn-sm btn-outline-secondary">
+                    <i class="fas fa-list mr-2"></i>
+                    Show as list
+                  </a>
+                </div> 
+              </div>
+              
+              <div class="container-fluid px-0">
+                <% for (let course of teachingCourses) { %>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card h-100 rounded-0 border-bottom-0">
+                        <div class="card-body">
+                          <div class="d-flex align-items-center">
+                            <div class="w-75">
+                              <h5 class="card-title">
+                                <span class="mr-3">
+                                  <span class="mr-5"><%= course.title %></span>
+                                  <% if (course.nonActive) { %>
+                                    <span class="text-warning text-small"><i class="fas fa-ban mr-2"></i> Course not active</span>
+                                  <% } %>
+                                </span>
+                              </h5>
+                              <p class="card-text"><%= course.short %></p>
+                            </div>
+                            <div class="ml-auto" style="width: 150px;">
+                              <a href="/course/<%= course.id %>" class="btn btn-block btn-primary btn-sm">
+                                Continue<i class="fas fa-arrow-right mt-1 ml-2"></i>
+                              </a>
+                            </div>
+                          </div>
+                        </div>  
+                      </div>
+                    </div>
+                  </div>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } %>
+
+    <% if (loggedUser.dashboardstyles.mycoursesstyle === 'card') { %>
+      <!-- Content Row -->
+      <div class="row mb-5">
+        <div class="col-md-12">
+          <div class="card rounded-0">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <h2 class="card-title m-0">
+                  My Courses
+                </h2>
+                <div class="ml-auto">
+                  <a href="?mycoursesstyle=card" class="btn btn-sm active btn-outline-secondary mr-2">
+                    <i class="fas fa-th mr-2"></i>
+                    Show as card
+                  </a>
+                  <a href="?mycoursesstyle=list" class="btn btn-sm btn-outline-secondary">
+                    <i class="fas fa-list mr-2"></i>
+                    Show as list
+                  </a>
+                </div> 
+              </div>
+              
+              <div class="container-fluid px-0">
+                <div class="row">
+                  <% for (let course of enrolledCourses) { %>
+                    <!-- /.col-md-4 -->
+                    <div class="col-md-4">
+                      <div class="card h-100">
+                        <img class="card-img-top" src="<%= course.image %>">
+                        <div class="card-body">
+                          <h2 class="card-title"><%= course.title %></h5>
+                          <p class="card-text"><%= course.short %></p>
+                        </div>
+                        <div class="card-footer">
+                          <a href="/course/<%= course.id %>" class="btn btn-block btn-primary btn-sm">
+                            Continue<i class="fas fa-arrow-right mt-1 ml-2"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } else { %>
+      <div class="row mb-5">
+        <div class="col-md-12">
+          <div class="card rounded-0">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <h2 class="card-title m-0">
+                  My Courses
+                </h2>
+                <div class="ml-auto">
+                  <a href="?mycoursesstyle=card" class="btn btn-sm btn-outline-secondary mr-2">
+                    <i class="fas fa-th mr-2"></i>
+                    Show as card
+                  </a>
+                  <a href="?mycoursesstyle=list" class="btn active btn-sm btn-outline-secondary">
+                    <i class="fas fa-list mr-2"></i>
+                    Show as list
+                  </a>
+                </div> 
+              </div>
+              
+              <div class="container-fluid px-0">
+                <% for (let course of enrolledCourses) { %>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card h-100 rounded-0 border-bottom-0">
+                        <div class="card-body">
+                          <div class="d-flex align-items-center">
+                            <div class="w-75">
+                              <h5 class="card-title"><%= course.title %></h5>
+                              <div class="progress mb-2">
+                                <div class="progress-bar" role="progressbar" style="width: <%= course.progress %>%;" aria-valuenow="<%= course.progress %>" aria-valuemin="0" aria-valuemax="100"><%= course.progress %>% complete</div>
+                              </div>
+                              <p class="card-text"><%= course.short %></p>
+                            </div>
+                            <div class="ml-auto" style="width: 150px;">
+                              <a href="/course/<%= course.id %>" class="btn btn-block btn-primary btn-sm">
+                                Continue<i class="fas fa-arrow-right mt-1 ml-2"></i>
+                              </a>
+                            </div>
+                          </div>
+                        </div>  
+                      </div>
+                    </div>
+                  </div>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } %>
+
+    <% if (loggedUser.dashboardstyles.activecoursesstyle === 'card') { %>
+      <!-- /.row -->
+      <div class="row mb-5">
+        <div class="col-md-12">
+          <div class="card rounded-0">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <h2 class="card-title m-0">
+                  Active Courses
+                </h2>
+                <div class="ml-auto">
+                  <a href="?activecoursesstyle=card" class="btn btn-sm active btn-outline-secondary mr-2">
+                    <i class="fas fa-th mr-2"></i>
+                    Show as card
+                  </a>
+                  <a href="?activecoursesstyle=list" class="btn btn-sm btn-outline-secondary">
+                    <i class="fas fa-list mr-2"></i>
+                    Show as list
+                  </a>
+                </div> 
+              </div>
+              <div class="container-fluid px-0">
+                <div class="row">
+                  <% for (let course of notenrolledCourses) { %>
+                    <div class="col-md-4 mb-5">
+                      <div class="card h-100">
+                        <img class="card-img-top" src="<%= course.image %>">
+                        <div class="card-body">
+                          <h2 class="card-title"><%= course.title %></h2>
+                          <% if (course.selfenrollment) { %>
+                            <p class= "text-success mb-3">FREE</p>
+                          <% } %>
+                          <p class="card-text"><%= course.short %></p>
+                        </div>
+                        <div class="card-footer">
+                          <a href="/course/<%= course.id %>" class="btn btn-block btn-primary btn-sm">
+                            Learn more<i class="fas fa-arrow-right mt-1 ml-2"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } else { %>
+      <div class="row mb-5">
+        <div class="col-md-12">
+          <div class="card rounded-0">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <h2 class="card-title m-0">
+                  Active courses
+                </h2>
+                <div class="ml-auto">
+                  <a href="?activecoursesstyle=card" class="btn btn-sm btn-outline-secondary mr-2">
+                    <i class="fas fa-th mr-2"></i>
+                    Show as card
+                  </a>
+                  <a href="?activecoursesstyle=list" class="btn active btn-sm btn-outline-secondary">
+                    <i class="fas fa-list mr-2"></i>
+                    Show as list
+                  </a>
+                </div> 
+              </div>
+              
+              <div class="container-fluid px-0">
+                <% for (let course of notenrolledCourses) { %>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card h-100 rounded-0 border-bottom-0">
+                        <div class="card-body">
+                          <div class="d-flex align-items-center">
+                            <div class="w-75">
+                              <h5 class="card-title">
+                                <span class="mr-3">
+                                  <span class="mr-5"><%= course.title %></span>
+                                  <% if (course.selfenrollment) { %>
+                                    <span class="text-success text-small">FREE</span>
+                                  <% } %>
+                                </span>
+                              </h5>
+                              <p class="card-text"><%= course.short %></p>
+                            </div>
+                            <div class="ml-auto" style="width: 150px;">
+                              <a href="/course/<%= course.id %>" class="btn btn-block btn-primary btn-sm">
+                                Learn more<i class="fas fa-arrow-right mt-1 ml-2"></i>
+                              </a>
+                            </div>
+                          </div>
+                        </div>  
+                      </div>
+                    </div>
+                  </div>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } %>
+
+  </div>
+  <!-- /.container -->
+
+<%- include('../partials/footer') %>

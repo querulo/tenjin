@@ -1,0 +1,95 @@
+<%- include('../../partials/head', { cssFile: 'small-business.css' }) %>
+<%- include('../../partials/navigation/teacher') %>
+
+  <!-- Page Content -->
+  <div class="container-fluid bg-secondary">
+    <div class="row py-5">
+      <div class="col-md-12 text-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <h2 class="card-title"><%= course.title %></h2>
+              <p class="card-text"><%= course.short %></p>
+              <div class="progress mb-3">
+                <div class="progress-bar" role="progressbar" style="width: <%= course.progress %>%;" aria-valuenow="<%= course.progress %>" aria-valuemin="0" aria-valuemax="100"><%= course.progress %>% complete</div>
+              </div>
+              <div class="text-small">
+                <% if ( course.nextLesson ) { %>
+                  <span class="d-block">
+                    <i class="fas fa-graduation-cap mr-2"></i>
+                    <span class="mr-3">Next lesson: <%= course.nextLesson.title %></span>
+                    <i class="fas fa-calendar mr-2"></i>
+                    <span class="mr-3">Date <strong><%= course.nextLesson.date %></strong></span>
+                    <i class="fas fa-clock mr-2"></i>
+                    <span class="mr-2">Starts: <strong><%= course.nextLesson.start %></strong> – Ends <strong><%= course.nextLesson.end %></strong></span>
+                  </span>
+                <% } %>
+                <span class="d-block">
+                  <i class="fas fa-comment mr-2"></i>
+                  <span class="mr-3"><%= course.language %></span>
+                  <i class="fas fa-user-cog mr-2"></i>Teacher <strong><%= course.teacher.firstname %></strong>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <img class="img-fluid" src="<%= course.image %>">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container course">
+    <!-- Content Row -->
+    <div class="row my-3">
+      <div class="col-md-12 mb-5">
+        <div class="card rounded-0">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <h5 class="card-title m-0">Lessons</h5>
+              <div class="ml-auto">
+                <span class="mr-5"><%= lessons.length %> <%= lessons.length === 1 ? ' Lesson' : ' Lessons' %></span>
+                <span><i class="fas fa-clock mr-2"></i><%= course.totalHours %> hours</span>
+              </div>
+            </div>
+            
+            <div class="accordion" id="accordion">
+              <% for (let i = 0; i < lessons.length; i++) { %> 
+                <div class="card rounded-0 border-bottom-0">
+                  <div class="card-header" id="lesson-<%= i + 1 %>">
+                    <div class="d-flex align-items-center">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link text-secondary collapsed" data-toggle="collapse" data-target="#lesson-<%= i + 1 %>-collapse" aria-expanded="false" aria-controls="lesson-<%= i + 1 %>-collapse">
+                          <%= lessons[i].date %> - <%= lessons[i].title %>
+                        </button>
+                      </h5>
+                      <h5 class="mb-0 ml-auto h-100">
+                        <% if (lessons[i].completed.some(user => user.id === loggedUser.id)) { %> <i class="far fa-check-square"></i>
+                        <% } else { %> <i class="far fa-square"> </i><% } %>
+                      </h5>
+                    </div>
+                  </div>
+              
+                  <div id="lesson-<%= i + 1 %>-collapse" class="collapse" aria-labelledby="lesson-<%= i + 1 %>" data-parent="#accordion">
+                    <div class="card-body">
+                      <p class="text-small text-secondary mb-3">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span class="mr-2">Starts: <%- lessons[i].start %> – Ends: <%- lessons[i].end %></span>
+                      </p>
+                      <%- lessons[i].htmlContents %>
+                    </div>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+<%- include('../../partials/footer') %>
